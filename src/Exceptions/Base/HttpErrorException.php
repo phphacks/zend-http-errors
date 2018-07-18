@@ -4,10 +4,10 @@ namespace Zend\HttpErrors\Exceptions\Base;
 
 class HttpErrorException extends \Exception
 {
-    protected $httpErrorCode = 000;
+    const HTTP_ERROR_CODE = 000;
 
     public function getHttpErrorCode(): int
     {
-        return $this->httpErrorCode;
+        return self::HTTP_ERROR_CODE;
     }
 }

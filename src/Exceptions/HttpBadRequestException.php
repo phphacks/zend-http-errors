@@ -6,5 +6,5 @@ use Zend\HttpErrors\Exceptions\Base\HttpErrorException;
 
 class HttpBadRequestException extends HttpErrorException
 {
-    protected $httpErrorCode = 400;
+    const HTTP_ERROR_CODE = 400;
 }
