@@ -36,15 +36,19 @@ class ResponseFactory
     public function createFor(HttpErrorException $exception)
     {
         $response = new Response();
+        $response->setStatusCode($exception::HTTP_ERROR_CODE);
         $response->setReasonPhrase($exception::HTTP_REASON_PHRASE );
         $response->setContent(JsonResponseFactory::createFrom($exception));
 
         $httpErrorCode = $exception::HTTP_ERROR_CODE;
-        $decoratorNamespace = $this->decorators[$httpErrorCode];
 
-        /** @var ResponseDecoratorInterface $decorator */
-        $decorator = new $decoratorNamespace;
-        $decorator->decorate($response);
+        if(isset($this->decorators[$httpErrorCode])) {
+            $decoratorNamespace = $this->decorators[$httpErrorCode];
+
+            /** @var ResponseDecoratorInterface $decorator */
+            $decorator = new $decoratorNamespace;
+            $decorator->decorate($response);
+        }
 
         return $response;
     }

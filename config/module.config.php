@@ -1,12 +1,8 @@
 <?php
 
 use Zend\HttpErrors\Factory\ResponseFactory;
-use Zend\HttpErrors\Exceptions\HttpBadRequestException;
-use Zend\HttpErrors\Decorator\BadRequestResponseDecorator;
 
-$decorators = [
-    HttpBadRequestException::HTTP_ERROR_CODE => BadRequestResponseDecorator::class
-];
+$decorators = [];
 
 return [
     'service_manager' => [
