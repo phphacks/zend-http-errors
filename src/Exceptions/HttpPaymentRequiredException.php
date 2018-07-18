@@ -4,7 +4,7 @@ namespace Zend\HttpErrors\Exceptions;
 
 use Zend\HttpErrors\Exceptions\Base\HttpErrorException;
 
-class HttpInternalServerErrorException extends HttpErrorException
+class HttpPaymentRequiredException extends HttpErrorException
 {
-    protected $httpErrorCode = 500;
+    protected $httpErrorCode = 402;
 }
