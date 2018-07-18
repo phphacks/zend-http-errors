@@ -36,6 +36,8 @@ class ResponseFactory
     public function createFor(HttpErrorException $exception)
     {
         $response = new Response();
+        $response->setReasonPhrase($exception::HTTP_REASON_PHRASE );
+        $response->setContent(JsonResponseFactory::createFrom($exception));
 
         $httpErrorCode = $exception::HTTP_ERROR_CODE;
         $decoratorNamespace = $this->decorators[$httpErrorCode];

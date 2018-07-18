@@ -12,7 +12,7 @@ class BadRequestResponseDecoratorTest extends ApplicationTestCase
     {
         /** @var ResponseFactory $factory */
         $factory = $this->serviceManager->get('Zend\HttpErrors\Factory\ResponseFactory');
-        $response = $factory->createFor(new HttpBadRequestException());
+        $response = $factory->createFor(new HttpBadRequestException("Deu fita", 123));
 
         $this->assertEquals(HttpBadRequestException::HTTP_ERROR_CODE, $response->getStatusCode());
     }
