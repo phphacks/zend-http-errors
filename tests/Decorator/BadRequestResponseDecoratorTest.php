@@ -2,20 +2,17 @@
 
 namespace Zend\HttpErrors\Tests\Decorator;
 
-use PHPUnit\Framework\TestCase;
-use Zend\Http\PhpEnvironment\Response;
-use Zend\HttpErrors\Decorator\BadRequestResponseDecorator;
 use Zend\HttpErrors\Exceptions\HttpBadRequestException;
+use Zend\HttpErrors\Factory\ResponseFactory;
+use Zend\HttpErrors\Tests\ApplicationTestCase;
 
-class BadRequestResponseDecoratorTest extends TestCase
+class BadRequestResponseDecoratorTest extends ApplicationTestCase
 {
-    public function testDecoration()
+    public function testExceptionFactory()
     {
-        $response = new Response();
-        $response->setStatusCode(200);
-
-        $decorator = new BadRequestResponseDecorator();
-        $decorator->decorate($response);
+        /** @var ResponseFactory $factory */
+        $factory = $this->serviceManager->get('Zend\HttpErrors\Factory\ResponseFactory');
+        $response = $factory->createFor(new HttpBadRequestException());
 
         $this->assertEquals(HttpBadRequestException::HTTP_ERROR_CODE, $response->getStatusCode());
     }
