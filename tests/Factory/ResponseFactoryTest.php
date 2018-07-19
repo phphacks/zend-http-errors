@@ -5,8 +5,10 @@ namespace Zend\HttpErrors\Tests\Factory;
 use Zend\HttpErrors\Exceptions\Base\HttpErrorException;
 use Zend\HttpErrors\Exceptions\HttpBadRequestException;
 use Zend\HttpErrors\Exceptions\HttpForbiddenException;
+use Zend\HttpErrors\Exceptions\HttpInternalServerErrorException;
 use Zend\HttpErrors\Exceptions\HttpMethodNotAllowedException;
 use Zend\HttpErrors\Exceptions\HttpNotFoundException;
+use Zend\HttpErrors\Exceptions\HttpNotImplementedException;
 use Zend\HttpErrors\Exceptions\HttpPayloadTooLargeException;
 use Zend\HttpErrors\Exceptions\HttpRequestTimeoutException;
 use Zend\HttpErrors\Exceptions\HttpTooManyRequestsException;
@@ -39,7 +41,9 @@ class ResponseFactoryTest extends ApplicationTestCase
             new HttpMethodNotAllowedException(),
             new HttpRequestTimeoutException(),
             new HttpPayloadTooLargeException(),
-            new HttpTooManyRequestsException()
+            new HttpTooManyRequestsException(),
+            new HttpNotImplementedException(),
+            new HttpInternalServerErrorException()
         ];
 
         parent::setUp();
