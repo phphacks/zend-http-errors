@@ -11,6 +11,7 @@ use Zend\HttpErrors\Exceptions\HttpNotFoundException;
 use Zend\HttpErrors\Exceptions\HttpNotImplementedException;
 use Zend\HttpErrors\Exceptions\HttpPayloadTooLargeException;
 use Zend\HttpErrors\Exceptions\HttpRequestTimeoutException;
+use Zend\HttpErrors\Exceptions\HttpServiceUnavailableException;
 use Zend\HttpErrors\Exceptions\HttpTooManyRequestsException;
 use Zend\HttpErrors\Exceptions\HttpUnauthorizedException;
 use Zend\HttpErrors\Factory\ResponseFactory;
@@ -43,7 +44,8 @@ class ResponseFactoryTest extends ApplicationTestCase
             new HttpPayloadTooLargeException(),
             new HttpTooManyRequestsException(),
             new HttpNotImplementedException(),
-            new HttpInternalServerErrorException()
+            new HttpInternalServerErrorException(),
+            new HttpServiceUnavailableException()
         ];
 
         parent::setUp();
