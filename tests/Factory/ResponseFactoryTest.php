@@ -10,6 +10,7 @@ use Zend\HttpErrors\Exceptions\HttpMethodNotAllowedException;
 use Zend\HttpErrors\Exceptions\HttpNotFoundException;
 use Zend\HttpErrors\Exceptions\HttpNotImplementedException;
 use Zend\HttpErrors\Exceptions\HttpPayloadTooLargeException;
+use Zend\HttpErrors\Exceptions\HttpPaymentRequiredException;
 use Zend\HttpErrors\Exceptions\HttpRequestTimeoutException;
 use Zend\HttpErrors\Exceptions\HttpServiceUnavailableException;
 use Zend\HttpErrors\Exceptions\HttpTooManyRequestsException;
@@ -45,7 +46,8 @@ class ResponseFactoryTest extends ApplicationTestCase
             new HttpTooManyRequestsException(),
             new HttpNotImplementedException(),
             new HttpInternalServerErrorException(),
-            new HttpServiceUnavailableException()
+            new HttpServiceUnavailableException(),
+            new HttpPaymentRequiredException()
         ];
 
         parent::setUp();
