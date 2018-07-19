@@ -1,7 +1,7 @@
 # zend-httperrors
 Http compliant error reporting structure for zend framework.
 
-`composer require phphacks/zend-httperrors'
+`composer require phphacks/zend-httperrors`
 
 ### Add to your modules.config.php
 ```php
