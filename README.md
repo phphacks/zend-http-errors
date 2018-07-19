@@ -3,7 +3,7 @@ Http compliant error reporting structure for zend framework.
 
 `composer require phphacks/zend-httperrors'
 
-## Add to your modules.config.php
+### Add to your modules.config.php
 ```php
 return [
   'Zend\HttpErrors',
@@ -11,7 +11,7 @@ return [
 ];
 ```
 
-## Then throw an HttpErrorException
+### Then throw an HttpErrorException
 ```php
 class MyController
 {
@@ -30,3 +30,4 @@ class MyController
    }
 }
 ```
+That's just it.
