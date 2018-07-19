@@ -10,7 +10,7 @@ use Zend\Mvc\Application;
  *
  * @package Zend\HttpErrors\Tests
  */
-class ModuleTest extends TestCase
+class ErrorDispatcherTest extends TestCase
 {
     public function testIfModuleWasCreated()
     {
@@ -18,9 +18,6 @@ class ModuleTest extends TestCase
         $serviceManager = $application->getServiceManager();
         $moduleManager = $serviceManager->get('ModuleManager');
         $loadedModules = $moduleManager->getLoadedModules();
-
         $this->assertArrayHasKey('Zend\HttpErrors', $loadedModules);
-
-        $application->run();
     }
 }
