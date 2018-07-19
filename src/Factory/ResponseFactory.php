@@ -31,7 +31,8 @@ class ResponseFactory
 
     /**
      * @param HttpErrorException $exception
-     * @return Response
+     * @param null $response
+     * @return null|Response
      */
     public function createFor(HttpErrorException $exception, $response = null)
     {
