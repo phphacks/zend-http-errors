@@ -6,5 +6,6 @@ use Zend\HttpErrors\Exceptions\Base\HttpErrorException;
 
 class HttpNotFoundException extends HttpErrorException
 {
-    protected $httpErrorCode = 404;
+    const HTTP_ERROR_CODE = 404;
+    const HTTP_REASON_PHRASE = 'Not Found';
 }
