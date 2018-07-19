@@ -4,6 +4,7 @@ namespace Zend\HttpErrors;
 
 use Zend\HttpErrors\Event\ErrorEventHandler;
 use Zend\Mvc\MvcEvent;
+use Zend\ServiceManager\ServiceManager;
 
 /**
  * Module
@@ -19,6 +20,7 @@ class Module
      */
     public function onBootstrap(MvcEvent $event)
     {
+        /** @var ServiceManager $serviceManager */
         $serviceManager = $event->getApplication()->getServiceManager();
         $responseFactory = $serviceManager->get('Zend\HttpErrors\Factory\ResponseFactory');
         $errorEventHandler = new ErrorEventHandler($responseFactory);

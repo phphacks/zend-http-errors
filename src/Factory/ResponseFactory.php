@@ -33,9 +33,12 @@ class ResponseFactory
      * @param HttpErrorException $exception
      * @return Response
      */
-    public function createFor(HttpErrorException $exception)
+    public function createFor(HttpErrorException $exception, $response = null)
     {
-        $response = new Response();
+        if(empty($response)) {
+            $response = new Response();
+        }
+
         $response->setStatusCode($exception::HTTP_ERROR_CODE);
         $response->setReasonPhrase($exception::HTTP_REASON_PHRASE );
         $response->setContent(JsonResponseFactory::createFrom($exception));

@@ -17,7 +17,10 @@ class ErrorDispatcherTest extends TestCase
         $application = Application::init(include __DIR__ . '/application.config.php');
         $serviceManager = $application->getServiceManager();
         $moduleManager = $serviceManager->get('ModuleManager');
-        $loadedModules = $moduleManager->getLoadedModules();
-        $this->assertArrayHasKey('Zend\HttpErrors', $loadedModules);
+        $moduleManager->getLoadedModules();
+        $application = $application->run();
+        $response = $application->getResponse();
+
+        $this->assertEquals($response->getStatusCode(), 500);
     }
 }

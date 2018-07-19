@@ -18,9 +18,6 @@ class ModuleTest extends TestCase
         $serviceManager = $application->getServiceManager();
         $moduleManager = $serviceManager->get('ModuleManager');
         $loadedModules = $moduleManager->getLoadedModules();
-
         $this->assertArrayHasKey('Zend\HttpErrors', $loadedModules);
-
-        $application->run();
     }
 }

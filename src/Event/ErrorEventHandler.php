@@ -3,6 +3,7 @@
 namespace Zend\HttpErrors\Event;
 
 use Zend\HttpErrors\Exceptions\Base\HttpErrorException;
+use Zend\HttpErrors\Exceptions\HttpInternalServerErrorException;
 use Zend\HttpErrors\Factory\ResponseFactory;
 use Zend\Mvc\MvcEvent;
 
@@ -52,16 +53,14 @@ class ErrorEventHandler
      */
     public function handle(MvcEvent $event)
     {
-        if(!$this->eventShouldBeHandled($event)) {
-            return $event;
-        }
-
-        /** @var HttpErrorException $exception */
+        $response = $event->getResponse();
         $exception = $this->getException($event);
 
-        $response = $this->responseFactory->createFor($exception);
+        if(!$this->eventShouldBeHandled($event)) {
+            $exception = new HttpInternalServerErrorException();
+        }
 
-        $event->setResponse($response);
+        $this->responseFactory->createFor($exception, $response);
         $event->stopPropagation(true);
 
         return $event;
