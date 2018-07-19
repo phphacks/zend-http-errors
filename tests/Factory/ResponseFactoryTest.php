@@ -3,6 +3,7 @@
 namespace Zend\HttpErrors\Tests\Factory;
 
 use Zend\HttpErrors\Exceptions\HttpBadRequestException;
+use Zend\HttpErrors\Exceptions\HttpForbiddenException;
 use Zend\HttpErrors\Exceptions\HttpUnauthorizedException;
 use Zend\HttpErrors\Factory\ResponseFactory;
 use Zend\HttpErrors\Tests\ApplicationTestCase;
@@ -15,7 +16,8 @@ class ResponseFactoryTest extends ApplicationTestCase
     {
         $this->exceptions = [
             HttpBadRequestException::class,
-            HttpUnauthorizedException::class
+            HttpUnauthorizedException::class,
+            HttpForbiddenException::class
         ];
 
         parent::setUp();

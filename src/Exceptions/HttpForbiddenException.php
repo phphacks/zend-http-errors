@@ -6,5 +6,6 @@ use Zend\HttpErrors\Exceptions\Base\HttpErrorException;
 
 class HttpForbiddenException extends HttpErrorException
 {
-    protected $httpErrorCode = 000;
+    const HTTP_ERROR_CODE = 403;
+    const HTTP_REASON_PHRASE = 'Forbidden';
 }
