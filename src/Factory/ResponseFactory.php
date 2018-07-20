@@ -42,7 +42,6 @@ class ResponseFactory
 
         $response->setStatusCode($exception::HTTP_ERROR_CODE);
         $response->setReasonPhrase($exception::HTTP_REASON_PHRASE );
-        $response->setContent(JsonResponseFactory::createFrom($exception));
 
         $httpErrorCode = $exception::HTTP_ERROR_CODE;
 

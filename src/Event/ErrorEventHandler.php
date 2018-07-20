@@ -4,6 +4,7 @@ namespace Zend\HttpErrors\Event;
 
 use Zend\HttpErrors\Exceptions\Base\HttpErrorException;
 use Zend\HttpErrors\Exceptions\HttpInternalServerErrorException;
+use Zend\HttpErrors\Factory\JsonResponseFactory;
 use Zend\HttpErrors\Factory\ResponseFactory;
 use Zend\Mvc\MvcEvent;
 
@@ -59,6 +60,9 @@ class ErrorEventHandler
         if(!$this->eventShouldBeHandled($event)) {
             $exception = new HttpInternalServerErrorException();
         }
+
+        $viewModel = JsonResponseFactory::createFrom($exception);
+        $event->setViewModel($viewModel);
 
         $this->responseFactory->createFor($exception, $response);
         $event->stopPropagation(true);
