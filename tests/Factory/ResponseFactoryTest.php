@@ -4,6 +4,7 @@ namespace Zend\HttpErrors\Tests\Factory;
 
 use Zend\HttpErrors\Exceptions\Base\HttpErrorException;
 use Zend\HttpErrors\Exceptions\HttpBadRequestException;
+use Zend\HttpErrors\Exceptions\HttpConflictErrorException;
 use Zend\HttpErrors\Exceptions\HttpForbiddenException;
 use Zend\HttpErrors\Exceptions\HttpInternalServerErrorException;
 use Zend\HttpErrors\Exceptions\HttpMethodNotAllowedException;
@@ -47,7 +48,8 @@ class ResponseFactoryTest extends ApplicationTestCase
             new HttpNotImplementedException(),
             new HttpInternalServerErrorException(),
             new HttpServiceUnavailableException(),
-            new HttpPaymentRequiredException()
+            new HttpPaymentRequiredException(),
+            new HttpConflictErrorException()
         ];
 
         parent::setUp();
