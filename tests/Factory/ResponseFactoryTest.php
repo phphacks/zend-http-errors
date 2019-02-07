@@ -19,6 +19,7 @@ use Zend\HttpErrors\Exceptions\HttpUnauthorizedException;
 use Zend\HttpErrors\Factory\ResponseFactory;
 use Zend\HttpErrors\Tests\ApplicationTestCase;
 
+
 /**
  * ResponseFactoryTest
  *
