@@ -36,6 +36,10 @@ class ResponseFactory
      */
     public function createFor(HttpErrorException $exception, $response = null)
     {
+//        if ( $response instanceof \Zend\Console\Response) {
+//            return $response;
+//        }
+
         if(empty($response)) {
             $response = new Response();
         }
