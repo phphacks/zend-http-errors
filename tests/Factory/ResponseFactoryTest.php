@@ -16,6 +16,7 @@ use Zend\HttpErrors\Exceptions\HttpRequestTimeoutException;
 use Zend\HttpErrors\Exceptions\HttpServiceUnavailableException;
 use Zend\HttpErrors\Exceptions\HttpTooManyRequestsException;
 use Zend\HttpErrors\Exceptions\HttpUnauthorizedException;
+use Zend\HttpErrors\Exceptions\HttpUnprocessableEntityException;
 use Zend\HttpErrors\Factory\ResponseFactory;
 use Zend\HttpErrors\Tests\ApplicationTestCase;
 
@@ -50,7 +51,8 @@ class ResponseFactoryTest extends ApplicationTestCase
             new HttpInternalServerErrorException(),
             new HttpServiceUnavailableException(),
             new HttpPaymentRequiredException(),
-            new HttpConflictErrorException()
+            new HttpConflictErrorException(),
+            new HttpUnprocessableEntityException()
         ];
 
         parent::setUp();
